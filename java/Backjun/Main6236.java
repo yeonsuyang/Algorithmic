@@ -1,13 +1,13 @@
-package study;
-
+package com.study.helloworld;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main6236 {
+public class Main6236{
+	
 	public static void main(String args[]) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 	     StringTokenizer st= new StringTokenizer(br.readLine());
 	     
 	     int N = Integer.parseInt(st.nextToken()); //N일 동안
@@ -18,40 +18,47 @@ public class Main6236 {
 	     
 	     for(int i=0; i<N; i++) {
 	    	 useMoney[i] = Integer.parseInt(br.readLine());
-	    	 minimum = min(minimum,useMoney[i]);
-	    	 hap = useMoney[i];
+	    	 minimum = min(minimum,useMoney[i]); // 최소 이만큼은 있어야 함
+	    	 hap += useMoney[i]; // 최대 : 다 더한 값
+	     }
+        
+	     int hi = hap;
+	     int low = minimum;
+	     int answer = 0;
+	     
+	     while(low <= hi){
+	    	 int mid = (hi+low) /2;
+	    	 int num = use(useMoney,M,mid);
+	    
+			if(num > M) {
+				low  = mid+1;
+			}else if(num <= M) {
+				answer = mid;
+				hi = mid -1;
+			}
 	     }
 	     
-	     int mid = minimum+hap /2;
-	     use(useMoney,M,mid);
+	     System.out.println(answer);
 	}
 
-	private static void use(int[] useMoney, int m, int minimum) {
+	private static int use(int[] useMoney, int m, int mid) {
 		
-		int gazindon = minimum;
+		int gazindon = mid;
 		int num = 1;
 		for(int i=0; i<useMoney.length; i++) {
 			if(gazindon < useMoney[i]) {
-				gazindon = minimum;
+				gazindon = mid;
 				num++;
-				if(num > m) {
+                if(num > m){
 					break;
 				}
 			}
 			gazindon -= useMoney[i];
 		}
-		
-		if(num > m) {
-			use(useMoney,m,minimum+1);
-		}else if(num < m) {
-			use(useMoney,m,minimum-1);
-		}else {
-			System.out.println(minimum);
-		}
+		return num;
 	}
 
 	private static int min(int minimum, int i) {
-		// TODO Auto-generated method stub
 		return minimum > i ? minimum : i;
 	}
 }

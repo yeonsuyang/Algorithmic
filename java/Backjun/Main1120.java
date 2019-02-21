@@ -1,20 +1,5 @@
-/*
- * com.study.yeonsu Main1120.java 2019. 1. 25.
- *
- * Copyright (c) 2001-2013 Alticast Corp.
- * All rights reserved. http://www.alticast.com/
- *
- * This software is the confidential and proprietary information of
- * Alticast Corp. ("Confidential Information"). You shall not
- * disclose such Confidential Information and shall use it only in
- * accordance with the terms of the license agreement you entered into
- * with Alticast.
- */
 package com.study.helloworld;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 
 /***
 길이가 N으로 같은 문자열 X와 Y가 있을 때, 두 문자열 X와 Y의 차이는 X[i] ≠ Y[i]인 i의 개수이다. 
@@ -35,28 +20,32 @@ A와 B의 길이가 같으면서, A와 B의 차이를 최소가 되도록 했을
 adaabc aababbc
 2
  */
+import java.util.Scanner;
+
 public class Main1120 {
-	public static void main(String[] args) throws IOException {
-		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	public static void main(String args[]) {
 		
-		String A = br.readLine();
-		String B = br.readLine();
-				
-		int lengthdf = B.length() - A.length();
-		int count = 0;
+		Scanner sc = new Scanner(System.in);
 		
+		String a = sc.next();
+		String b = sc.next();
 		
-			String[] array_a = A.split("");
-			String[] array_b = A.split("");
-			String[] array_change = new String[array_b.length];
-			
-			
-			for(int i=0;i<lengthdf;i++){
-				
+		int ans = -1;
+		
+		for(int i=0; i<=b.length() - a.length(); i++) {
+			int cnt = 0;
+			for(int j=0; j<a.length(); j++) {
+				if(a.charAt(j) != b.charAt(j+i)) {
+					cnt++;
+				}
 			}
+			
+			if(ans == -1 || ans > cnt) {
+				ans = cnt;
+			}
+		}
 		
-		
-		System.out.println(count);
-		
+		System.out.println(ans);
 	}
+
 }
