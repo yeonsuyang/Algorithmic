@@ -1,4 +1,4 @@
-package study;
+package com.study.helloworld;
 
 import java.util.Scanner;
 
