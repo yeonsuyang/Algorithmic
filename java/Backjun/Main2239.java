@@ -78,7 +78,6 @@ public class Main2239 {
 			for(int j=0;j<9;j++){
 				if(stoku[i][j] == 0){
 					if(!changeInput(i,j)){
-						System.out.println("시작 y:" +i +",x:"+j);
 						return false;
 					};
 				}				
@@ -106,10 +105,6 @@ public class Main2239 {
 			if(check){
 				if(!calculate()){
 					stoku[y][x] = 0;
-					System.out.println("여길언제오는 지 y:" +y +",x:"+x +", i:"+i);
-				/*	if(i == 9){
-						return false;
-					}*/
 				}else{
 					break;
 				}
