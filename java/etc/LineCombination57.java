@@ -1,3 +1,4 @@
+package etc;
 /*
  * com.study.yeonsu LineCombination57.java 2016. 12. 19.
  *
@@ -10,7 +11,6 @@
  * accordance with the terms of the license agreement you entered into
  * with Alticast.
  */
-package com.study.helloworld;
 
 /** 
 N명의 사람이 있을 때, N명의 사람을 서로 다른 방법으로 줄을 세우는 방법은 N!개가 존재합니다.

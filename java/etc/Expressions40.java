@@ -1,3 +1,4 @@
+package etc;
 /*
  * com.study.yeonsu Expressions40.java 2016. 12. 8.
  *
@@ -10,7 +11,6 @@
  * accordance with the terms of the license agreement you entered into
  * with Alticast.
  */
-package com.study.helloworld;
 
 /** 
 수학을 공부하던 민지는 재미있는 사실을 발견하였습니다. 

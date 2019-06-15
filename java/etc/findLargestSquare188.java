@@ -1,4 +1,4 @@
-/*
+package etc;/*
  * com.study.yeonsu num01.java 2016. 12. 6.
  *
  * Copyright (c) 2001-2013 Alticast Corp.
@@ -10,7 +10,6 @@
  * accordance with the terms of the license agreement you entered into
  * with Alticast.
  */
-package com.study.helloworld;
 
 /**
  * num01 Class 클래스가 어떠한 것을 처리하기 위한 클래스인지 명시 한다. (ex:이 클래스는 어떤것을 처리하기 위해 작성된 클래스이다.)

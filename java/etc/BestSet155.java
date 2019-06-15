@@ -1,4 +1,4 @@
-/*
+package etc;/*
  * com.study.yeonsu num02.java 2016. 12. 7.
  *
  * Copyright (c) 2001-2013 Alticast Corp.
@@ -10,7 +10,6 @@
  * accordance with the terms of the license agreement you entered into
  * with Alticast.
  */
-package com.study.helloworld;
 
 /** 
  * num02 Class

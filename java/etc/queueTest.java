@@ -1,4 +1,4 @@
-/*
+package etc;/*
  * com.study.yeonsu qt.java 2019. 3. 29.
  *
  * Copyright (c) 2001-2013 Alticast Corp.
@@ -10,9 +10,7 @@
  * accordance with the terms of the license agreement you entered into
  * with Alticast.
  */
-package com.study.helloworld;
 
-import java.awt.Point;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 import java.util.Queue;

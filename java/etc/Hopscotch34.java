@@ -1,4 +1,4 @@
-package com.study.helloworld;
+package etc;
 
 /**
 영희는 땅따먹기 게임에 푹 빠졌습니다. 땅따먹기 게임의 땅은 총 N행 4열로 나누어져 있고, 
