@@ -5,12 +5,16 @@ import java.util.Scanner;
 public class Main2023 {
 
     static int N;
+    static StringBuilder sb = new StringBuilder();
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
         N = sc.nextInt();
 
         calculate(1,"");
+
+        System.out.println(sb.toString());
     }
 
     private static void calculate(int index, String z) {
@@ -28,7 +32,7 @@ public class Main2023 {
             temp += i;
             if(getPrime(Integer.parseInt(temp))) {
                 if (index == N) {
-                    System.out.println(temp);
+                    sb.append(temp + "\n");
                 } else if(index < N){
                     calculate(index + 1, temp);
                 } else {
@@ -43,13 +47,15 @@ public class Main2023 {
 
     private  static boolean getPrime( int num){
 
-            boolean isPrime = true;
+        boolean isPrime = true;
 
-                for (int n = 2; n <= num/2; n++) {
-                    if (num % n == 0) {
-                        isPrime = false;
-                    }
+        int sqrt = (int) Math.sqrt(num);
+
+        for (int n = 2; n <= sqrt; n++) {
+            if (num % n == 0) {
+                isPrime = false;
                 }
+            }
         return isPrime;
 
     }
