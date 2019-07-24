@@ -1,2 +1,0 @@
-# Algorithmic
-Algorithmic-Problem
