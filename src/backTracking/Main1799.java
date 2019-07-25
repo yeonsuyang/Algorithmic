@@ -32,7 +32,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main1799 { //다시 해봐야함
+public class Main1799 { 
 
         static int[][] input;
         static int[][] bishop;
