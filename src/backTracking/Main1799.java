@@ -32,11 +32,12 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Main1799 { 
+public class Main1799 {
 
         static int[][] input;
         static int[][] bishop;
-        static int ans;
+        static int black_ans;
+        static int white_ans;
         static int N;
 
     public static void main(String[] args) throws IOException {
@@ -44,7 +45,6 @@ public class Main1799 {
 
         N = Integer.parseInt(br.readLine()); //체스 크기
         input = new int[N][N];
-        bishop = new int[N][N];
 
         StringTokenizer st;
         for(int i=0;i<N;i++){
@@ -54,63 +54,74 @@ public class Main1799 {
             }
         }
 
-        for(int i=0;i<N;i++){
-            for(int j=0;j<N;j++){
-                if(input[i][j] == 1){
-                    bishop[i][j] = 1;
-                    calculate(j,i,1);
-                }
+        bishop = new int[N][N];
 
-                bishop[i][j] = 0;
-            }
-        }
+        Bcalculate(0,0,0);
+        Wcalculate(0,1,0);
 
-        System.out.println(ans);
+        System.out.println(black_ans + white_ans);
     }
 
-    private static void calculate(int x,int y,int count) {
+    private static void Bcalculate(int x,int y,int count) {
+
+        if(x > N-1 || y > N-1){
+            return;
+        }
+
+
+        for(int i=y;i<N;i++){
+            for(int j=x;j<N;j++){
+                if(input[i][j] == 1 && bishop[i][j] == 0 && valid(j,i)){
+                    bishop[i][j] = 1;
+                    count++;
+                }
+
+                if(count > black_ans){
+                    black_ans = count;
+                }
+
+                    if(j == N-1){
+                        Bcalculate(1,i+1,count);
+                    }else if(j == N-2){
+                        Bcalculate(0,i+1,count);
+                    }else{
+                        Bcalculate(j+2,i,count);
+                    }
+                    bishop[i][j] = 0;
+                    count--;
+
+            }
+
+        }
+    }
+
+    private static void Wcalculate(int x,int y,int count) {
 
         if(x > N-1 || y > N-1){
             return;
         }
 
         for(int i=y;i<N;i++){
-            for(int j=x+1;j<N;j++){
+            for(int j=x;j<N;j++){
                 if(input[i][j] == 1 && bishop[i][j] == 0 && valid(j,i)){
                     bishop[i][j] = 1;
-
-                    System.out.println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ" );
-
-                    for(int k=0;k<N;k++){
-                        for(int h=0;h<N;h++){
-                            System.out.print(bishop[k][h] + " ");
-                        }
-                        System.out.println();
-                    }
-
-
-                    count ++;
+                    count++;
                 }
 
-                if(i == N-1 && j == N-1){ // 마지막 까지 왔을 때
-                    if(count > ans){
-                        ans = count;
+                if(count > white_ans){
+                    white_ans = count;
+                }
 
-                        System.out.println("ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ"+ count );
-
-                        for(int k=0;k<N;k++){
-                            for(int h=0;h<N;h++){
-                                System.out.print(bishop[k][h] + " ");
-                            }
-                            System.out.println();
-                        }
-
-
+                    if(j == N-1){
+                        Wcalculate(1,i+1,count);
+                    }else if(j == N-2){
+                        Wcalculate(0,i+1,count);
+                    }else{
+                        Wcalculate(j+2,i,count);
                     }
-                }else{
-                    calculate(j,i,count+1);
                     bishop[i][j] = 0;
-                }
+                    count--;
+
             }
         }
 
@@ -118,9 +129,9 @@ public class Main1799 {
 
     private static boolean valid(int x, int y){
 
-        int[] dx = {-1,-1,1,1};
-        int[] dy = {-1,1,1,-1};
-        //대각선을 검사해서
+        int[] dx = {-1,1};
+        int[] dy = {-1,-1};
+        //대각선을 검사해서 //위만 검사해도 된다고 생각.. !
         for(int i=1;i<=4;i++){
             for(int j=0;j<4;j++){
                 int hx = x + (i*dx[j]);
@@ -129,10 +140,9 @@ public class Main1799 {
                 if(hx < 0 || hy < 0 || hx > N-1 || hy > N-1){
                     continue;
                 }
-
-                if(bishop[hy][hx] == 1){
+               if(bishop[hy][hx] == 1){
                     return false; //이미 비숍이 세워져있으면 리턴
-                }
+               }
             }
         }
         return true; //끝까지 없었다면 패스
