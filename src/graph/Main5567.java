@@ -38,7 +38,7 @@ public class Main5567 {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        N = sc.nextInt(); // 친구가 몇명 까지 있는 지
+        N = sc.nextInt(); // 친구가 몇명 까지 있는 가
 
 
         input = new ArrayList[N + 1];

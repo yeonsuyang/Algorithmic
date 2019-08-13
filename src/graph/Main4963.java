@@ -56,7 +56,7 @@ import java.util.StringTokenizer;
 public class Main4963 {
 
     static  int[][] input;
-    static  int[][] visit;//
+    static  int[][] visit;
     static int w;
     static int h;
     static int[] dx = {-1,-1,1,1,1,-1,0,0};
