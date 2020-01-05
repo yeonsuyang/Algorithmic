@@ -1,4 +1,4 @@
-package etc;
+package math;
 
 import java.util.Scanner;
 
