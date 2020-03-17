@@ -25,8 +25,6 @@ public class Main9663 {
 			return;
 		}
 		
-
-		
 		for(int i=0;i<N;i++) {
 			
 			boolean ck = check(h,i);

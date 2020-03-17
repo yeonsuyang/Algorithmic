@@ -281,12 +281,4 @@ public class Main14891 {
             }
 
     }
-
-
-    public static void clock(){
-
-    }
-
-
-
 }

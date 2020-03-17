@@ -291,7 +291,6 @@ public class Main2933 {
 				}
 			}
 		}
-
 		resultCount = tempCount;
 		dmc.add(resultCount);
 	}
